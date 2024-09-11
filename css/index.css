@@ -1,0 +1,146 @@
+body {
+  font-family: Inter;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #fff;
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  color: #000;
+}
+
+section {
+  padding: 20px;
+  background-color: white;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+a:hover {
+  opacity: 85%;
+  transition: all ease-in-out;
+}
+
+form {
+  margin-top: 20px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.add-blog-btn {
+  padding: 10px 15px;
+  background-color: #000;
+  color: white;
+  border: 30%;
+  cursor: pointer;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #fff;
+  color: black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* featured blog styling */
+.featured-blog {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  justify-content: between;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.blog-details {
+  h2 {
+    margin-bottom: 7px;
+  }
+
+  .blog-description {
+    width: 600px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  span {
+    color: #333;
+    font-size: small;
+  }
+}
+
+.blog-list {
+  /* padding-top: 20px; */
+  text-align: left;
+  margin-top: 7%;
+  margin-bottom: 30px;
+}
+.blog-list h2 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-left: 60px;
+}
+.blog-list h2::after {
+  content: "→";
+  margin-left: 10px;
+}
+.blog-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* gap: 20px; */
+}
+.blog-item {
+  flex: 1 1 calc(33.333% - 40px);
+  box-sizing: border-box;
+  max-width: calc(33.333% - 40px);
+}
+/* .blog-item img {
+  width: 100%;
+  height: auto;
+} */
+.blog-item h3 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+.blog-item p {
+  font-size: 14px;
+}
