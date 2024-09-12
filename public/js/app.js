@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Fetch comments from the server
   function loadComments() {
-    fetch(`http://localhost:5000/api/comments/${blogSlug}`)
+    fetch(`https://blog-website-task.onrender.com/api/comments/${blogSlug}`)
       .then((response) => response.json())
       .then((data) => {
         commentsList.innerHTML = "";
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
       blogSlug,
     };
 
-    fetch("http://localhost:5000/api/comments", {
+    fetch("https://blog-website-task.onrender.com/api/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
