@@ -1,14 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("comment-form");
-  const commentsList = document.getElementById("comments-list");
-  const blogId = "blog1";
+  const form = document.querySelector("#comment-form");
+  const commentsList = document.querySelector("#comments-list");
+  const commentsHeading = document.querySelector(".comments-heading");
+  const blogSlug = window.location.href.split("blogs/")[1];
+  console.log(blogSlug);
 
   // Fetch comments from the server
   function loadComments() {
-    fetch(`http://localhost:5000/api/comments/${blogId}`)
+    fetch(`http://localhost:5000/api/comments/${blogSlug}`)
       .then((response) => response.json())
       .then((data) => {
         commentsList.innerHTML = "";
+        commentsHeading.innerHTML = `Comments (${data.length})`;
+        if (data.length === 0) {
+          commentsList.innerHTML = "<span>No comments.</span>";
+        }
         data.forEach((comment) => {
           const commentHTML = `<p><strong>${comment.name}</strong> (${comment.email}): ${comment.content}</p>`;
           commentsList.innerHTML += commentHTML;
@@ -29,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name,
       email,
       content,
-      blogId,
+      blogSlug,
     };
 
     fetch("http://localhost:5000/api/comments", {

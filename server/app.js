@@ -21,19 +21,20 @@ app.use(bodyParser.json());
 const commentRoutes = require("./routes/commentRoutes");
 
 // Serve static files
-app.use(express.static(path.join(__dirname, "../")));
+// app.use(express.static(path.join(__dirname, "../")));
+app.use(express.static(path.join(__dirname, "../public/")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../", "index.html"));
+  res.sendFile("index.html");
 });
 
 app.get("/blogs", (req, res) => {
-  res.sendFile(path.join(__dirname, "../", "blogs.html"));
+  res.sendFile(path.join(__dirname, "../public", "blogs.html"));
 });
 
-app.get("/blogs/blog:num", (req, res) => {
-  const { num } = req.params;
-  res.sendFile(path.join(__dirname, "../blogs", `blog${num}.html`));
+app.get("/blogs/:slug", (req, res) => {
+  const { slug } = req.params;
+  res.sendFile(path.join(__dirname, "../public/blogs", `${slug}.html`));
 });
 
 app.use("/api/comments", commentRoutes);

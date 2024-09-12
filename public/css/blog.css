@@ -1,0 +1,102 @@
+/* individual blog page styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Blog Title */
+h1 {
+  font-size: 2.5em;
+  color: #000;
+  text-align: left;
+  margin-top: 20px;
+}
+
+/* Author and Date */
+header p {
+  font-size: 0.885em;
+  color: #333;
+  text-align: left;
+}
+
+/* Cover Image */
+header img {
+  width: 100%;
+  height: auto;
+  /* border-radius: 8px; */
+}
+
+/* Blog Description and Content */
+section {
+  margin-top: 25px;
+}
+
+section p {
+  margin: 10px 0;
+  color: #333;
+  font-size: 1.2em;
+}
+
+article p {
+  font-size: 1.2em;
+  color: #4d4d4d;
+  margin: 10px 0;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* Comments Section */
+#comments-section {
+  margin-top: 40px;
+}
+
+#comments-section h3 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #2980b9;
+}
+
+#comment-form {
+  margin-top: 20px;
+}
+
+#comment-form input,
+#comment-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  border: 1px solid #bdc3c7;
+  font-size: 1em;
+}
+
+#comment-form button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#comment-form button:hover {
+  background-color: #1f618d;
+}

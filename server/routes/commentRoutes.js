@@ -3,9 +3,9 @@ const Comment = require("../models/Comment");
 const router = express.Router();
 
 // GET all comments for a specific blog
-router.get("/:blogId", async (req, res) => {
+router.get("/:blogSlug", async (req, res) => {
   try {
-    const comments = await Comment.find({ blogId: req.params.blogId });
+    const comments = await Comment.find({ blogSlug: req.params.blogSlug });
     res.json(comments);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -14,8 +14,8 @@ router.get("/:blogId", async (req, res) => {
 
 // POST a new comment
 router.post("/", async (req, res) => {
-  const { name, email, content, blogId } = req.body;
-  const newComment = new Comment({ name, email, content, blogId });
+  const { name, email, content, blogSlug } = req.body;
+  const newComment = new Comment({ name, email, content, blogSlug });
 
   try {
     await newComment.save();
