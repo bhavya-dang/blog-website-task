@@ -5,7 +5,9 @@ config();
 
 async function connectToDatabase() {
   try {
-    await connect(process.env.MONGO_URI);
+    await connect(process.env.MONGO_URI).then(() =>
+      console.log("Connect to MongoDB")
+    );
   } catch (error) {
     console.log(error);
     throw new Error("Cannot connect to MongoDB");
