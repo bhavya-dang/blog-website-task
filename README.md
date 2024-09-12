@@ -5,3 +5,5 @@
 - [ ] deployment and hosting (optional)
 - [ ] code cleaning and commenting
 - [ ] optimizing and finalizing
+- [ ] quill icon on all pages
+- [ ] blog post CMS (?)
