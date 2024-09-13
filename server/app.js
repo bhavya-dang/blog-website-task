@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, "../public/")));
 
 // Routes
 const commentRoutes = require("./routes/commentRoutes");
+const blogRoutes = require("./routes/blogRoutes");
 
 app.get("/", (req, res) => {
   res.sendFile("index.html");
@@ -35,6 +36,7 @@ app.get("/blogs/:slug", (req, res) => {
 });
 
 app.use("/api/comments", commentRoutes);
+app.use("/api/blogs", blogRoutes);
 
 const PORT = process.env.PORT || 5000;
 connectToDatabase().then(() => {
