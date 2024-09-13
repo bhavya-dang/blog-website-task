@@ -32,7 +32,7 @@ app.get("/blogs", (req, res) => {
 
 app.get("/blogs/:slug", (req, res) => {
   const { slug } = req.params;
-  res.sendFile(path.join(__dirname, "../public/blogs", `${slug}.html`));
+  res.sendFile(path.join(__dirname, "../public/blogs", `blog-template.html`));
 });
 
 app.use("/api/comments", commentRoutes);

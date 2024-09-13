@@ -1,5 +1,13 @@
 const Blog = require("../models/Blog");
 
+function generateSlug(title) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9 -]/g, "")
+    .replace(/ +/g, "-")
+    .replace(/-+/g, "-");
+}
+
 // GET all blogs
 exports.getBlogs = async (req, res) => {
   try {
@@ -28,8 +36,9 @@ exports.postNewBlog = async (req, res) => {
     const newBlog = new Blog({
       title: req.body.title,
       content: req.body.content,
-      blogSlug: req.body.blogSlug,
-      imgURL: req.body.imgURL,
+      blogSlug: generateSlug(req.body.title),
+      description: req.body.description,
+      imgUrl: req.body.imgUrl,
       author: req.body.author,
     });
 
