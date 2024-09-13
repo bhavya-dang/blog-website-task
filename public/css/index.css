@@ -1,5 +1,7 @@
 /* index and blogs.html styling */
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 body {
   font-family: Inter;
   margin: 0;
@@ -213,7 +215,7 @@ footer {
 }
 
 .all-blog-details h1 {
-  font-size: 2.5rem; /* 38px, scalable */
+  font-size: 2rem; /* 38px, scalable */
   font-weight: bold;
   margin-top: 10px;
 }

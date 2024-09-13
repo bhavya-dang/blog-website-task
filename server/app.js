@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, "../public/")));
 
 // Routes
 const commentRoutes = require("./routes/commentRoutes");
+const blogRoutes = require("./routes/blogRoutes");
 
 app.get("/", (req, res) => {
   res.sendFile("index.html");
@@ -31,10 +32,11 @@ app.get("/blogs", (req, res) => {
 
 app.get("/blogs/:slug", (req, res) => {
   const { slug } = req.params;
-  res.sendFile(path.join(__dirname, "../public/blogs", `${slug}.html`));
+  res.sendFile(path.join(__dirname, "../public/blogs", `blog-template.html`));
 });
 
 app.use("/api/comments", commentRoutes);
+app.use("/api/blogs", blogRoutes);
 
 const PORT = process.env.PORT || 5000;
 connectToDatabase().then(() => {
