@@ -58,6 +58,63 @@ BlogIt! is a dynamic platform where users can read and interact with blog posts.
       └── commentRoutes.js
 ```
 
+## Installation
+
+1. Clone the repository.
+
+```bash
+git clone https://github.com/bhavya-dang/blog-website-task.git
+```
+
+1. Navigate to project directory.
+
+```bash
+cd blog-website-task
+```
+
+3. Install dependencies using npm:
+
+```bash
+  npm install
+```
+
+4. Set up your database and environment
+
+- Create a `.env` file and paste the following in it:
+
+```bash
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/blogApp
+```
+
+- Replace the `MONGO_URI` value with the link to your db.
+
+5. Run the server
+
+```bash
+npm run dev
+```
+
+The server will start and be available at `http://localhost:5000`.
+
+# POST Request Example
+
+To create a new blog post, you can send a POST request to `http://localhost:5000/api/blogs/` with the following body:
+
+```json
+{
+  "title": "Test Blog",
+  "author": "Jane Doe",
+  "imgUrl": "https://placehold.co/400x200",
+  "description": "Blog Description",
+  "content": "Blog Content"
+}
+```
+
+## Contact
+
+For any questions or feedback, please reach out to bhavya.dang1207@gmail.com.
+
 # Todos
 
 - [ ] responsive design
