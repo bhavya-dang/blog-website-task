@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
         throw new Error(`HTTP error! Status: ${response.status}`);
       const data = await response.json();
       const blog = data[0];
-      console.log("Blog Data:", blog);
-
       document.title = blog.title;
 
       const headerEl = document.querySelector("header");
@@ -55,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(`/api/comments/${blogSlug}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("Comments Data:", data);
         commentsList.innerHTML = "";
         commentsHeading.innerHTML = `Comments (${data.length})`;
         if (data.length === 0) {

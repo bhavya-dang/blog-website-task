@@ -12,7 +12,6 @@ function generateSlug(title) {
 exports.getBlogs = async (req, res) => {
   try {
     const blogs = await Blog.find();
-    console.log(blogs);
     res.json(blogs);
   } catch (error) {
     res.status(500).json({ message: error.message });

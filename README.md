@@ -4,6 +4,8 @@
 
 BlogIt! is a dynamic platform where users can read and interact with blog posts.
 
+[_It is now live 🎉_](https://blog-website-task.onrender.com)
+
 ## Features
 
 - **Homepage**: Displays a featured blog and a list of recent blogs.
