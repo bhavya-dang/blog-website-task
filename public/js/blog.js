@@ -2,10 +2,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("#comment-form");
   const commentsList = document.querySelector("#comments-list");
   const commentsHeading = document.querySelector(".comments-heading");
-  const blogSlug = window.location.href.split("blogs/")[1] || ""; // Handle empty slug case
+  const blogSlug = window.location.href.split("blogs/")[1];
+  const loader = document.getElementById("loader");
+
+  // Show loader
+  function showLoader() {
+    loader.style.display = "block";
+  }
+
+  // Hide loader
+  function hideLoader() {
+    loader.style.display = "none";
+  }
 
   // Get blog data
   async function getBlogData() {
+    showLoader(); // Show loader before API call
     try {
       const response = await fetch(`/api/blogs/${blogSlug}`);
       if (!response.ok)
@@ -45,11 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     } catch (error) {
       console.error("Error fetching blog data:", error);
+    } finally {
+      hideLoader();
     }
   }
 
-  // Fetch comments from the server
+  // Fetch comments from the db
   function loadComments() {
+    showLoader(); // Show loader before API call
     fetch(`/api/comments/${blogSlug}`)
       .then((response) => response.json())
       .then((data) => {
@@ -64,12 +79,16 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
       })
-      .catch((error) => console.error("Error fetching comments:", error));
+      .catch((error) => console.error("Error fetching comments:", error))
+      .finally(() => {
+        hideLoader();
+      });
   }
 
   // Submit a new comment
   form.addEventListener("submit", function (event) {
     event.preventDefault();
+    showLoader();
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -91,10 +110,13 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((response) => response.json())
       .then(() => {
-        loadComments(); // Reload comments after adding a new one
+        loadComments();
         form.reset();
       })
-      .catch((error) => console.error("Error submitting comment:", error));
+      .catch((error) => console.error("Error submitting comment:", error))
+      .finally(() => {
+        hideLoader();
+      });
   });
 
   // Initial load of blog data and comments

@@ -1,11 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const loader = document.getElementById("loader");
+
+  // Show loader
+  function showLoader() {
+    loader.style.display = "block";
+  }
+
+  // Hide loader
+  function hideLoader() {
+    loader.style.display = "none";
+  }
+  // Get all bogs from db
   async function getAllBlogs() {
+    showLoader();
     try {
       const response = await fetch(`/api/blogs/`);
       const blogs = await response.json();
 
       const blogsContainer = document.querySelector(".all-blog-items");
       blogsContainer.innerHTML = "";
+
       blogs
         .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
         .forEach((blog) => {
@@ -33,6 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     } catch (error) {
       console.error("Error fetching blogs:", error);
+    } finally {
+      hideLoader();
     }
   }
 

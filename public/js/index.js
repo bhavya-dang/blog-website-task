@@ -1,5 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const loader = document.getElementById("loader");
+
+  // Show loader
+  function showLoader() {
+    loader.style.display = "block";
+  }
+
+  // Hide loader
+  function hideLoader() {
+    loader.style.display = "none";
+  }
+
+  // Get all blogs and filter the necessary data
   async function getAllBlogs() {
+    showLoader(); // Show loader before API call
     try {
       const response = await fetch(`/api/blogs/`);
       if (!response.ok)
@@ -60,6 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     } catch (error) {
       console.error("Error fetching blogs:", error);
+    } finally {
+      hideLoader();
     }
   }
 

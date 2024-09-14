@@ -100,7 +100,7 @@ npm run dev
 
 The server will start and be available at `http://localhost:5000`.
 
-# POST Request Example
+## POST Request Example
 
 To create a new blog post, you can send a POST request to `http://localhost:5000/api/blogs/` with the following body:
 
@@ -123,8 +123,7 @@ For any questions or feedback, please reach out to bhavya.dang1207@gmail.com.
 - [x] responsive design
 - [x] navbar on individual blog page
 - [x] hosting
-- [ ] code cleaning and commenting
-- [ ] optimizing and finalizing
+- [x] code cleaning and commenting
 - [x] quill icon on all pages
 - [x] blog post CMS
-- [ ] add loader during api calls
+- [x] add loader during api calls
