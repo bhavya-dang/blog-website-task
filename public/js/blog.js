@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const blog = data[0];
       document.title = blog.title;
 
+      // Update meta tags dynamically
+      insertMetaTags(blog);
+
       const headerEl = document.querySelector("header");
       if (headerEl) {
         headerEl.innerHTML = `
@@ -118,6 +121,56 @@ document.addEventListener("DOMContentLoaded", function () {
         hideLoader();
       });
   });
+
+  // Helper function to create or update meta tags
+  function setMetaTag(attribute, nameOrProperty, content) {
+    let metaTag = document.querySelector(
+      `meta[${attribute}="${nameOrProperty}"]`
+    );
+
+    if (!metaTag) {
+      metaTag = document.createElement("meta");
+      metaTag.setAttribute(attribute, nameOrProperty);
+      document.head.appendChild(metaTag);
+    }
+
+    metaTag.setAttribute("content", content);
+  }
+
+  // Function to insert dynamic meta tags
+  function insertMetaTags(blog) {
+    // Set document title
+    document.title = `${blog.title} - BlogIt!`;
+
+    // Meta description
+    setMetaTag(
+      "name",
+      "description",
+      blog.description || blog.content.slice(0, 150)
+    );
+
+    // Open Graph meta tags (for Facebook)
+    setMetaTag("property", "og:type", "article");
+    setMetaTag("property", "og:url", window.location.href);
+    setMetaTag("property", "og:title", blog.title);
+    setMetaTag(
+      "property",
+      "og:description",
+      blog.description || blog.content.slice(0, 150)
+    );
+    setMetaTag("property", "og:image", blog.imgUrl);
+
+    // Twitter card meta tags
+    setMetaTag("name", "twitter:card", "summary_large_image");
+    setMetaTag("name", "twitter:url", window.location.href);
+    setMetaTag("name", "twitter:title", blog.title);
+    setMetaTag(
+      "name",
+      "twitter:description",
+      blog.description || blog.content.slice(0, 150)
+    );
+    setMetaTag("name", "twitter:image", blog.imgUrl);
+  }
 
   // Initial load of blog data and comments
   getBlogData();

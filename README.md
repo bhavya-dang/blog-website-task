@@ -127,3 +127,4 @@ For any questions or feedback, please reach out to bhavya.dang1207@gmail.com.
 - [x] quill icon on all pages
 - [x] blog post CMS
 - [x] add loader during api calls
+- [x] meta tags for SEO
