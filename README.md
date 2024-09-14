@@ -5,6 +5,7 @@
 BlogIt! is a dynamic platform where users can read and interact with blog posts.
 
 [_It is now live 🎉_](https://blog-website-task.onrender.com)
+(Its abysmally slow though since its on a free instance 😞)
 
 ## Features
 
@@ -119,12 +120,11 @@ For any questions or feedback, please reach out to bhavya.dang1207@gmail.com.
 
 # Todos
 
-- [ ] responsive design
+- [x] responsive design
 - [x] navbar on individual blog page
-- [ ] deployment and hosting
-  - [x] api hosted on render
-  - [ ] frontend hosting on render (?)
+- [x] hosting
 - [ ] code cleaning and commenting
 - [ ] optimizing and finalizing
 - [x] quill icon on all pages
 - [x] blog post CMS
+- [ ] add loader during api calls

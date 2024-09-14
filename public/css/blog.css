@@ -71,7 +71,6 @@ article p {
 
 #comments-list {
   max-height: 500px;
-
   overflow-y: scroll;
 }
 
@@ -131,5 +130,46 @@ nav {
   &:hover {
     color: #333;
     transition: all 0.5s ease-in-out;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  article p {
+    font-size: 0.9em;
+  }
+
+  #comment-form input,
+  #comment-form textarea {
+    font-size: 0.9em;
+  }
+
+  #comment-form button {
+    font-size: 0.9em;
+  }
+
+  .comments-heading {
+    font-size: 0.5em;
+  }
+
+  nav {
+    margin-left: 10px;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  #comments-list p {
+    font-size: 0.8rem;
   }
 }
